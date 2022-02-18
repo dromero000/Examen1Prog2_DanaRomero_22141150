@@ -14,8 +14,8 @@ import java.util.Random;
 public class PersonaNormal extends Persona{
 
     //Constructor
-    public PersonaNormal(String nombre, String poder, String debilidad, String tipoHV, boolean escuadron, int fuerza, int agilidadF, int agilidadM) {
-        super(nombre, poder, debilidad, tipoHV, escuadron, fuerza, agilidadF, agilidadM);
+    public PersonaNormal(String nombre, String poder, String debilidad, boolean tipoHV, int fuerza, int agilidadF, int agilidadM) {
+        super(nombre, poder, debilidad, tipoHV, fuerza, agilidadF, agilidadM);
     }
 
     @Override

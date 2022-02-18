@@ -14,18 +14,18 @@ import java.util.Random;
 public abstract class Persona {
     
     //Atributos
-    protected String nombre, poder, debilidad, tipoHV;
-    protected boolean escuadron;
+    protected String nombre, poder, debilidad;
+    protected boolean tipoHV, escuadron;
     protected int fuerza, agilidadF, agilidadM;
     
     //Constructor
 
-    public Persona(String nombre, String poder, String debilidad, String tipoHV, boolean escuadron, int fuerza, int agilidadF, int agilidadM) {
+    public Persona(String nombre, String poder, String debilidad, boolean tipoHV, int fuerza, int agilidadF, int agilidadM) {
         this.nombre = nombre;
         this.poder = poder;
         this.debilidad = debilidad;
         this.tipoHV = tipoHV;
-        this.escuadron = escuadron;
+        this.escuadron = false;
         this.fuerza = fuerza;
         this.agilidadF = agilidadF;
         this.agilidadM = agilidadM;

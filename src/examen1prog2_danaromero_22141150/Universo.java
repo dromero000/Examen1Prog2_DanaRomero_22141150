@@ -28,6 +28,12 @@ public class Universo {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Universo{" + "nombre=" + nombre + ", squads=" + squads + '}';
+    }
+    
     
     
    

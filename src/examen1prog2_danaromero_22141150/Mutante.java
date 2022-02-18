@@ -17,8 +17,8 @@ public class Mutante extends Persona {
     //Atributos
     ArrayList <String> factoresMutantes;
 
-    public Mutante(String nombre, String poder, String debilidad, String tipoHV, boolean escuadron, int fuerza, int agilidadF, int agilidadM) {
-        super(nombre, poder, debilidad, tipoHV, escuadron, fuerza, agilidadF, agilidadM);
+    public Mutante(String nombre, String poder, String debilidad, boolean tipoHV, int fuerza, int agilidadF, int agilidadM) {
+        super(nombre, poder, debilidad, tipoHV, fuerza, agilidadF, agilidadM);
         factoresMutantes = new ArrayList <String>();
     }
 

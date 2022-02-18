@@ -15,8 +15,8 @@ public class SuperHumano extends Persona {
     //Atributo
     String superpoder;
 
-    public SuperHumano(String superpoder, String nombre, String poder, String debilidad, String tipoHV, boolean escuadron, int fuerza, int agilidadF, int agilidadM) {
-        super(nombre, poder, debilidad, tipoHV, escuadron, fuerza, agilidadF, agilidadM);
+    public SuperHumano( String nombre, String poder, String debilidad, boolean tipoHV, int fuerza, int agilidadF, int agilidadM,String superpoder) {
+        super(nombre, poder, debilidad, tipoHV, fuerza, agilidadF, agilidadM);
         this.superpoder = superpoder;
     }
 

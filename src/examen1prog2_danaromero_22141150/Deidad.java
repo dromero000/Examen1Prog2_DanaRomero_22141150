@@ -17,8 +17,8 @@ public class Deidad extends Extraterrestre{
     boolean creyentes;
     String religion;
 
-    public Deidad(boolean creyentes, String religion, String nombre, String poder, String debilidad, String tipoHV, boolean escuadron, int fuerza, int agilidadF, int agilidadM) {
-        super(nombre, poder, debilidad, tipoHV, escuadron, fuerza, agilidadF, agilidadM);
+    public Deidad(boolean creyentes, String religion, String nombre, String poder, String debilidad, boolean tipoHV, int fuerza, int agilidadF, int agilidadM) {
+        super(nombre, poder, debilidad, tipoHV, fuerza, agilidadF, agilidadM);
         this.creyentes = creyentes;
         this.religion = religion;
     }

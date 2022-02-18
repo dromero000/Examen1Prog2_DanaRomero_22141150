@@ -11,8 +11,8 @@ package examen1prog2_danaromero_22141150;
  */
 public abstract class Extraterrestre extends Persona{
 
-    public Extraterrestre(String nombre, String poder, String debilidad, String tipoHV, boolean escuadron, int fuerza, int agilidadF, int agilidadM) {
-        super(nombre, poder, debilidad, tipoHV, escuadron, fuerza, agilidadF, agilidadM);
+    public Extraterrestre(String nombre, String poder, String debilidad, boolean tipoHV, int fuerza, int agilidadF, int agilidadM) {
+        super(nombre, poder, debilidad, tipoHV, fuerza, agilidadF, agilidadM);
     }
 
     @Override
