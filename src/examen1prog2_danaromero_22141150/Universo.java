@@ -12,8 +12,24 @@ import java.util.ArrayList;
  * @author Dana Romero
  */
 public class Universo {
-    String nombre;
+    protected String nombre;
+     ArrayList <Escuadron> squads;
+
+    public Universo(String nombre) {
+        this.nombre = nombre;
+        squads = new ArrayList <Escuadron>();
+        
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
     
-    ArrayList <Escuadron> squads;
+    
+   
     
 }

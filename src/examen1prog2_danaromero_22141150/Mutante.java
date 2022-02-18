@@ -35,17 +35,40 @@ public class Mutante extends Persona {
     public void finalChance(Persona p1, Persona p2) {
         Random rnd = new Random();
         int r = rnd.nextInt(3);
+        int r2 = rnd.nextInt(2);
         switch(r){
             case 1:
                 p1.setFuerza((int)Math.round(p1.getFuerza()*2));
-                p2.setAgilidadF(p2.getAgilidadF()/2);
+                switch(r2){
+                    case 1:
+                        p2.setAgilidadF(p2.getAgilidadF()/2);
+                        break;
+                    case 2:
+                        p2.setAgilidadM(p2.getAgilidadF()/2);
+                        break;
+                }
                 break;
             case 2:
                 p1.setAgilidadM((int)Math.round(p1.getAgilidadM()*2));
-                p2.setFuerza(p2.getFuerza()/2);
+                switch(r2){
+                    case 1:
+                        p2.setAgilidadF(p2.getAgilidadF()/2);
+                        break;
+                    case 2:
+                        p2.setFuerza(p2.getFuerza()/2);
+                        break;
+                }
                 break;
             case 3:
                 p1.setAgilidadF((int)Math.round(p1.getAgilidadF()*2));
+                switch(r2){
+                    case 1:
+                        p2.setFuerza(p2.getFuerza()/2);
+                        break;
+                    case 2:
+                        p2.setAgilidadM(p2.getAgilidadF()/2);
+                        break;
+                }
                 p2.setAgilidadM(p2.getAgilidadM()/2);
                 break;
         }

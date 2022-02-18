@@ -18,10 +18,9 @@ public class Escuadron {
     
     ArrayList <Persona> miembros;
 
-    public Escuadron(String nombre, String lugarBase, String lider, String heroeVillano, ArrayList<Persona> miembros) {
+    public Escuadron(String nombre, String lugarBase, String heroeVillano, ArrayList<Persona> miembros) {
         this.nombre = nombre;
         this.lugarBase = lugarBase;
-        this.lider = lider;
         this.heroeVillano = heroeVillano;
         this.miembros = miembros;
     }
