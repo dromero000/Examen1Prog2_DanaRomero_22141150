@@ -5,6 +5,8 @@
  */
 package examen1prog2_danaromero_22141150;
 
+import java.util.Random;
+
 /**
  *
  * @author Dana Romero
@@ -36,6 +38,28 @@ public class PorAccidenteRadioactivo extends Persona{
 
     public void setTipoAccidente(String tipoAccidente) {
         this.tipoAccidente = tipoAccidente;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+"PorAccidenteRadioactivo{" + "edadAccidente=" + edadAccidente + ", tipoAccidente=" + tipoAccidente + '}';
+    }
+    
+    @Override
+    public void finalChance(Persona p1, Persona p2) {
+        Random rnd = new Random();
+        int r = rnd.nextInt(3);
+        switch(r){
+            case 1:
+                p1.setFuerza(p1.getFuerza()*4);
+                break;
+            case 2:
+                p1.setAgilidadM(p1.getAgilidadM()*4);
+                break;
+            case 3:
+                p1.setAgilidadF(p1.getAgilidadF()*4);
+                break;
+        }
     }
     
     

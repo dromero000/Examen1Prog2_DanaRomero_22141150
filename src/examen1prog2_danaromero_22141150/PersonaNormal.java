@@ -5,6 +5,8 @@
  */
 package examen1prog2_danaromero_22141150;
 
+import java.util.Random;
+
 /**
  *
  * @author Dana Romero
@@ -15,7 +17,30 @@ public class PersonaNormal extends Persona{
     public PersonaNormal(String nombre, String poder, String debilidad, String tipoHV, boolean escuadron, int fuerza, int agilidadF, int agilidadM) {
         super(nombre, poder, debilidad, tipoHV, escuadron, fuerza, agilidadF, agilidadM);
     }
-    
+
+    @Override
+    public String toString() {
+        return super.toString()+"PersonaNormal{" + '}';
+    }
+
+    @Override
+    public void finalChance(Persona p1, Persona p2) {
+        Random rnd = new Random();
+        int r = rnd.nextInt(3);
+        switch(r){
+            case 1:
+                p1.setFuerza((int)Math.round(p1.getFuerza()*1.5));
+                break;
+            case 2:
+                p1.setAgilidadM((int)Math.round(p1.getAgilidadM()*1.5));
+                break;
+            case 3:
+                p1.setAgilidadF((int)Math.round(p1.getAgilidadF()*1.5));
+                break;
+        }
+    }
+
+   
     
     
 }

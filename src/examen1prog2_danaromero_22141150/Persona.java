@@ -5,11 +5,13 @@
  */
 package examen1prog2_danaromero_22141150;
 
+import java.util.Random;
+
 /**
  *
  * @author Dana Romero
  */
-public class Persona {
+public abstract class Persona {
     
     //Atributos
     protected String nombre, poder, debilidad, tipoHV;
@@ -29,6 +31,9 @@ public class Persona {
         this.agilidadM = agilidadM;
     }
     
+    //Funciones 
+    
+    public abstract void finalChance(Persona p1, Persona p2);
 
     public String getNombre() {
         return nombre;

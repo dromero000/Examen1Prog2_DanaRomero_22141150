@@ -5,6 +5,8 @@
  */
 package examen1prog2_danaromero_22141150;
 
+import java.util.Random;
+
 /**
  *
  * @author Dana Romero
@@ -36,6 +38,23 @@ public class Deidad extends Extraterrestre{
     public void setReligion(String religion) {
         this.religion = religion;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"Deidad{" + "creyentes=" + creyentes + ", religion=" + religion + '}';
+    }
+
+    @Override
+    public void finalChance(Persona p1, Persona p2) {
+        p1.setFuerza(p1.getFuerza()*4);
+        p1.setAgilidadM(p1.getAgilidadM()*4);
+        p1.setAgilidadF(p1.getAgilidadF()*4);
+        p2.setAgilidadF(p2.getAgilidadF()/2);
+        p2.setFuerza(p2.getFuerza()/2);
+        p2.setAgilidadM(p2.getAgilidadM()/2);
+    }
+    
+    
     
     
     

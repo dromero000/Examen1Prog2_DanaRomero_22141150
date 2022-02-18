@@ -5,34 +5,31 @@
  */
 package examen1prog2_danaromero_22141150;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
  *
  * @author Dana Romero
  */
-public class Alien extends Extraterrestre{
+public class Mutante extends Persona {
     
     //Atributos
-    String planeta;
+    ArrayList <String> factoresMutantes;
 
-    public Alien(String planeta, String nombre, String poder, String debilidad, String tipoHV, boolean escuadron, int fuerza, int agilidadF, int agilidadM) {
+    public Mutante(String nombre, String poder, String debilidad, String tipoHV, boolean escuadron, int fuerza, int agilidadF, int agilidadM) {
         super(nombre, poder, debilidad, tipoHV, escuadron, fuerza, agilidadF, agilidadM);
-        this.planeta = planeta;
+        factoresMutantes = new ArrayList <String>();
     }
 
-    public String getPlaneta() {
-        return planeta;
+    public ArrayList<String> getFactoresMutantes() {
+        return factoresMutantes;
     }
 
-    public void setPlaneta(String planeta) {
-        this.planeta = planeta;
+    public void setFactoresMutantes(ArrayList<String> factoresMutantes) {
+        this.factoresMutantes = factoresMutantes;
     }
 
-    @Override
-    public String toString() {
-        return super.toString()+"Alien{" + "planeta=" + planeta + '}';
-    }
     
     @Override
     public void finalChance(Persona p1, Persona p2) {
@@ -40,20 +37,19 @@ public class Alien extends Extraterrestre{
         int r = rnd.nextInt(3);
         switch(r){
             case 1:
+                p1.setFuerza((int)Math.round(p1.getFuerza()*2));
                 p2.setAgilidadF(p2.getAgilidadF()/2);
-                p2.setFuerza(p2.getFuerza()/2);
                 break;
             case 2:
+                p1.setAgilidadM((int)Math.round(p1.getAgilidadM()*2));
                 p2.setFuerza(p2.getFuerza()/2);
-                p2.setAgilidadM(p2.getAgilidadM()/2);
                 break;
             case 3:
+                p1.setAgilidadF((int)Math.round(p1.getAgilidadF()*2));
                 p2.setAgilidadM(p2.getAgilidadM()/2);
-                p2.setAgilidadF(p2.getAgilidadF()/2);
                 break;
         }
     }
-    
     
     
 }

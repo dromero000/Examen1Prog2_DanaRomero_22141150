@@ -14,9 +14,27 @@ import java.util.ArrayList;
 public class Escuadron {
     
     //Atributos
-    String nombre, lugarBase, líder, heroeVillano;
+    String nombre, lugarBase, lider, heroeVillano;
     
     ArrayList <Persona> miembros;
+
+    public Escuadron(String nombre, String lugarBase, String lider, String heroeVillano, ArrayList<Persona> miembros) {
+        this.nombre = nombre;
+        this.lugarBase = lugarBase;
+        this.lider = lider;
+        this.heroeVillano = heroeVillano;
+        this.miembros = miembros;
+    }
     
+    
+    
+    public Persona unicoNombrePersona(String nombre){
+        for(Persona p : miembros){
+            if(nombre.equals(p.getNombre())){
+                return p;
+            }
+        }
+        return null;
+    }
     
 }
