@@ -6,6 +6,7 @@
 package examen1prog2_danaromero_22141150;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -529,22 +530,84 @@ public class Main {
     //Simulación
     public void simulacion(){
         Scanner leer = new Scanner (System.in);
+        Random rnd = new Random();
         System.out.println("Ingrese el nombre del escuadrón 1:");
         Escuadron e1 = unicoNombreEscuadron(leer.next());
         System.out.println("Ingrese el nombre del escuadrón 2:");
         Escuadron e2 = unicoNombreEscuadron(leer.next());
         if(e1!=null && e2!=null){
-            
-            
-       
+           int r = rnd.nextInt(3);
+           switch(r){
+               case 1:
+                   duelo(e1.lider,e2.lider,"fuerza");
+                   break;
+               case 2:
+                   duelo(e1.lider,e2.lider,"agilidad mental");
+                   break;
+               case 3:
+                   duelo(e1.lider,e2.lider,"agilidad fisica");
+                   break;
+           }
+                  
             
         }
         
     }
     
+    public Persona duelo (Persona p1, Persona p2, String atributo){
+        if (atributo.equals("fuerza")){
+            System.out.println("Duelo de Fuerza");
+                   System.out.println(p1.nombre+", Fuerza: "+p1.fuerza);
+                   System.out.println(p2.nombre+", Fuerza: "+p2.fuerza);
+                   if(p1.fuerza>p2.fuerza){
+                       System.out.println("Ganador : "+p1.nombre);
+                       System.out.println("Perdedor: "+p2.nombre);
+                       return p2;
+                   }else if(p2.fuerza>p1.fuerza){
+                       System.out.println("Ganador : "+p2.nombre);
+                       System.out.println("Perdedor: "+p1.nombre);
+                       return p1;
+                   }else{
+                       System.out.println("Empate");
+                       return null;
+                   }
+        }else if (atributo.equals("agilidad mental")){
+            System.out.println("Duelo de Agilidad Mental");
+                   System.out.println(p1.nombre+", Agilidad Mental: "+p1.agilidadM);
+                   System.out.println(p2.nombre+", Agilidad Mental: "+p2.agilidadM);
+                   if(p1.agilidadM>p2.agilidadM){
+                       System.out.println("Ganador : "+p1.nombre);
+                       System.out.println("Perdedor: "+p2.nombre);
+                       return p2;
+                   }else if(p2.agilidadM>p1.agilidadM){
+                       System.out.println("Ganador : "+p2.nombre);
+                       System.out.println("Perdedor: "+p1.nombre);
+                       return p1;
+                   }else{
+                       System.out.println("Empate");
+                       return null;
+                   }
+    }else if (atributo.equals("agilidad fisica")){
+            System.out.println("Duelo de Agilidad Física");
+                   System.out.println(p1.nombre+", Agilidad Física: "+p1.agilidadF);
+                   System.out.println(p2.nombre+", Agilidad Física: "+p2.agilidadF);
+                   if(p1.agilidadF>p2.agilidadF){
+                       System.out.println("Ganador : "+p1.nombre);
+                       System.out.println("Perdedor: "+p2.nombre);
+                       return p2;
+                   }else if(p2.agilidadF>p1.agilidadF){
+                       System.out.println("Ganador : "+p2.nombre);
+                       System.out.println("Perdedor: "+p1.nombre);
+                       return p1;
+                   }else{
+                       System.out.println("Empate");
+                       return null;
+                   }
+    }
     
     
     
- 
+    return null;
+    }
 }
     
