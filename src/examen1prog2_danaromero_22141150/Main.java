@@ -245,6 +245,7 @@ public class Main {
                    break;
                case 6:
                    System.out.println("Simular Batalla");
+                   simulacion();
                    break;
            }
        }while(opcion1!=7);
@@ -528,7 +529,7 @@ public class Main {
     }
     
     //Simulación
-    public void simulacion(){
+    public static void simulacion(){
         Scanner leer = new Scanner (System.in);
         Random rnd = new Random();
         System.out.println("Ingrese el nombre del escuadrón 1:");
@@ -554,7 +555,7 @@ public class Main {
         
     }
     
-    public Persona duelo (Persona p1, Persona p2, String atributo){
+    public static Persona duelo (Persona p1, Persona p2, String atributo){
         if (atributo.equals("fuerza")){
             System.out.println("Duelo de Fuerza");
                    System.out.println(p1.nombre+", Fuerza: "+p1.fuerza);
