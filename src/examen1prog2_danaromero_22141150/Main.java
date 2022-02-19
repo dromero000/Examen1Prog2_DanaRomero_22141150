@@ -47,11 +47,20 @@ public class Main {
     }
     
     
+    public static Universo unicoNombreUniverso(String nombre){
+        for (Universo u : listaUniverso){
+            if(u.getNombre().equals(nombre)){
+                return u;
+            }
+        }
+        return null;
+    }
+    
     public static void menuUniverso(){
        Scanner leer = new Scanner (System.in).useDelimiter("\n");
        int opcion1;
        do{
-           System.out.println("Menú Universo\n1 - Crear\n2 - Modificar\n3 - Eliminar\n4 - Listar");
+           System.out.println("Menú Universo\n1 - Crear\n2 - Modificar\n3 - Eliminar\n4 - Listar\n5 - Agregar escuadrones\n6 - Salir");
            System.out.print("Ingrese la opción: ");
            opcion1 = leer.nextInt();
            switch(opcion1){
@@ -59,7 +68,12 @@ public class Main {
                    System.out.println("Crear");
                    System.out.print("Ingrese el nombre del universo: ");
                    String nombreU = leer.next();
-                   listaUniverso.add(new Universo (nombreU));
+                   if(unicoNombreUniverso(nombreU)==null){
+                       listaUniverso.add(new Universo (nombreU));
+                   }else{
+                       System.out.println("El nombre ingresado ya existe");
+                   }
+                   
                    break;
                case 2:
                    System.out.println("Modificar");
@@ -69,7 +83,11 @@ public class Main {
                        int pos = leer.nextInt();
                         System.out.print("Ingrese el nuevo nombre: ");
                         nombreU = leer.next();
-                        listaUniverso.get(pos).setNombre(nombreU);
+                        if(unicoNombreUniverso(nombreU)==null){
+                            listaUniverso.get(pos).setNombre(nombreU);
+                        }else{
+                            System.out.println("El nombre ingresado ya existe");
+                        }
                    }catch(Exception e){
                        System.out.println("La posición ingresada no existe");
                    }
@@ -90,8 +108,25 @@ public class Main {
                        System.out.println(u.toString());
                    }
                    break;
+               case 5:
+                   System.out.println("Agregar Escuadrones");
+                   System.out.print("Igrese nombre del universo: ");
+                   String universo = leer.next();
+                   Universo u = unicoNombreUniverso(universo);
+                   if(u!=null){
+                       System.out.print("Ingresar nombre del escuadrón: ");
+                       String escuadronN = leer.next();
+                       Escuadron e = unicoNombreEscuadron(escuadronN);
+                       if(e!=null){
+                           u.squads.add(e);
+                       }else{
+                           System.out.println("El escuadrón ingresado no existe");
+                       }
+                   }else{
+                       System.out.println("El universo ingresado no existe");
+                   }
            }
-       }while(opcion1!=5);
+       }while(opcion1!=6);
     }
     
     public static Escuadron unicoNombreEscuadron(String nombre){
@@ -172,6 +207,29 @@ public class Main {
                    break;
                case 5:
                    System.out.println("Agregar Personas");
+                   System.out.print("Ingrese el nombre del escuadrón al cual desea agregar personajes: ");
+                   String nombreEscuadron = leer.next();
+                   Escuadron e = unicoNombreEscuadron(nombreEscuadron);
+                   if(e!=null){
+                    System.out.print("Ingrese el nombre de la persona que desea agregar al escuadrón: ");
+                    String nombrePersona = leer.next();
+                    Persona p = unicoNombrePersona(nombrePersona);
+                    if(e.heroeVillano){
+                        if(p.tipoHV){
+                            e.miembros.add(p);
+                        }else{
+                            System.out.println("La persona no existe entre los héroes");
+                        }
+                    }else{
+                        if(!p.tipoHV){
+                            e.miembros.add(p);
+                        }else{
+                            System.out.println("La persona no existe entre los villanos");
+                        }
+                    }
+                   }else{
+                       System.out.println("El escuadrón ingresado no existe");
+                   }
                    break;
                case 6:
                    System.out.println("Simular Batalla");
@@ -231,6 +289,8 @@ public class Main {
                    int agilidadF = leer.nextInt();
                    System.out.print("Ingrese el nivel de agilidad mental: ");
                    int agilidadM = leer.nextInt();
+                   int nivelTotal = fuerza+agilidadF+agilidadM;
+                   if(nivelTotal>=100 && nivelTotal<=150){
                    System.out.print("1 - Persona Normal\n2 - Mutante\n3 - Por Accidente Radioactivo\n4 - SuperHumano"
                            + "\n5 - Deidad\n6 - Alien\nIngrese tipo de persona: ");
                    int tipoP = leer.nextInt();
@@ -312,6 +372,9 @@ public class Main {
                    }else{
                        System.out.println("El nombre ingresado ya existe"); 
                    }
+                   }else{
+                       System.out.println("No tiene lo suficiente para ser héroe/villano");
+                   }
                    
                    break;
                case 2:
@@ -335,9 +398,11 @@ public class Main {
                         agilidadF = leer.nextInt();
                         System.out.print("Ingrese el nivel de agilidad mental: ");
                         agilidadM = leer.nextInt();
+                        nivelTotal = fuerza+agilidadF+agilidadM;
+                        if(nivelTotal>=100 && nivelTotal<=150){
                         System.out.print("1 - Persona Normal\n2 - Mutante\n3 - Por Accidente Radioactivo\n4 - SuperHumano"
                                 + "\n5 - Deidad\n6 - Alien\nIngrese tipo de persona: ");
-                        tipoP = leer.nextInt();
+                        int tipoP = leer.nextInt();
                    if((unicoNombrePersona(nombreP)==null)){
                    switch(tipoP){
                        case 1:
@@ -410,6 +475,9 @@ public class Main {
                    }else{
                        System.out.println("El nombre ingresado ya existe"); 
                    }
+                        }else{
+                            System.out.println("No tiene lo suficiente para ser héroe/villano");
+                        }
                        
                    }catch(Exception e){
                        System.out.println("La posición ingresada no existe");
@@ -418,9 +486,16 @@ public class Main {
                case 3:
                    System.out.println("Eliminar");
                    try{
-                       System.out.print("Ingrese la posición de la persona a eliminar: ");
-                       int pos = leer.nextInt();
-                       listaPersonas.remove(pos);
+                       System.out.print("Ingrese el nombre de la persona a eliminar: ");
+                       nombreP = leer.next();
+                       Persona p = unicoNombrePersona(nombreP);
+                       listaPersonas.remove(p);
+                       //Borrar talvez
+                       if(listaVillanos.contains(p)){
+                           listaVillanos.remove(p);
+                       }else{
+                           listaHeroes.remove(p);
+                       }
                        System.out.println("Persona eliminada exitosamente");
                    }catch(Exception e){
                        System.out.println("La posición ingresada no existe");
@@ -429,12 +504,21 @@ public class Main {
                case 4:
                    System.out.println("Listar");
                    for (Persona p: listaPersonas){
-                       System.out.println(p.toString());
+                       if (p.tipoHV){
+                           System.out.println("Nombre: "+p.getNombre()+", Poder: "+p.poder);
+                       }else{
+                           System.out.println("Nombre: "+p.getNombre()+", Debilidad: "+p.debilidad);
+                       }
                    }
                    break;
            }
        }while(opcion2!=5);
     }
+    
+    //Simulación
+    
+    
+    
     
  
 }

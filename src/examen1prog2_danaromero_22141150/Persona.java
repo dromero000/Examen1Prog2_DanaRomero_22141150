@@ -16,7 +16,7 @@ public abstract class Persona {
     //Atributos
     protected String nombre, poder, debilidad;
     protected boolean tipoHV, escuadron;
-    protected int fuerza, agilidadF, agilidadM;
+    protected int fuerza, agilidadF, agilidadM, nivelTotal;
     
     //Constructor
 
@@ -29,6 +29,8 @@ public abstract class Persona {
         this.fuerza = fuerza;
         this.agilidadF = agilidadF;
         this.agilidadM = agilidadM;
+        nivelTotal= agilidadM+agilidadF+fuerza;
+        
     }
     
     //Funciones 

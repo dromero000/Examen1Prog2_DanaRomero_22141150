@@ -76,6 +76,11 @@ public class Escuadron {
     public void setMiembros(ArrayList<Persona> miembros) {
         this.miembros = miembros;
     }
+
+    @Override
+    public String toString() {
+        return "Escuadron{" + "nombre=" + nombre + ", lugarBase=" + lugarBase + '}';
+    }
     
     
 }
