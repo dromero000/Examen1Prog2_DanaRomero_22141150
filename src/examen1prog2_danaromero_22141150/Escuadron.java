@@ -14,8 +14,9 @@ import java.util.ArrayList;
 public class Escuadron {
     
     //Atributos
-    String nombre, lugarBase, lider;
+    String nombre, lugarBase;
     boolean heroeVillano;
+    Persona lider;
     
     ArrayList <Persona> miembros;
 
@@ -53,13 +54,6 @@ public class Escuadron {
         this.lugarBase = lugarBase;
     }
 
-    public String getLider() {
-        return lider;
-    }
-
-    public void setLider(String lider) {
-        this.lider = lider;
-    }
 
     public boolean isHeroeVillano() {
         return heroeVillano;

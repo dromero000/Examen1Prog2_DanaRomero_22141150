@@ -21,6 +21,11 @@ public class Main {
     
     public static void main(String[] args) {
        listaUniverso.add(new Universo ("U2408"));
+       listaEscuadron.add(new Escuadron ("Avengers","SPS",true));
+       listaEscuadron.add(new Escuadron ("Iron","Tegucigalpa",false));
+       listaPersonas.add(new PersonaNormal("Dana","Invisibilidad","Agua",true,50,50,50));
+       listaPersonas.add(new Mutante("Franklin","Velocidad","Ratones",false,45,30,60));
+       listaPersonas.add(new Alien("Fulana","Fuerza","Rayos",true,35,10,2,"B612"));
        Scanner leer = new Scanner (System.in);
        int opcion;       
     
@@ -40,6 +45,7 @@ public class Main {
                     menuPersona();
                     break;
                 case 4:
+                    System.out.println("Gracias\n-Dana Romero");
                     break;
             }
     
@@ -77,7 +83,6 @@ public class Main {
                    break;
                case 2:
                    System.out.println("Modificar");
-                   
                    try{
                        System.out.print("Ingrese la posición del universo a modificar: ");
                        int pos = leer.nextInt();
@@ -168,7 +173,7 @@ public class Main {
                    System.out.println("Modificar");
                    
                    try{
-                       System.out.print("Ingrese la posición del universo a modificar: ");
+                       System.out.print("Ingrese la posición del escuadrón a modificar: ");
                        int pos = leer.nextInt();
                        System.out.print("Ingrese el nombre del escuadrón: ");
                        nombreE = leer.next();
@@ -181,6 +186,10 @@ public class Main {
                            listaEscuadron.get(pos).setNombre(nombreE);
                            listaEscuadron.get(pos).setLugarBase(lugar);
                            listaEscuadron.get(pos).setHeroeVillano(tipo);
+                           for (Persona p: listaEscuadron.get(pos).miembros){
+                               p.tipoHV=tipo;
+                           }
+                           
                             System.out.println("Escuadrón modificado exitosamente");
                         }else{
                             System.out.println("El nombre ingresado ya existe");
@@ -217,6 +226,8 @@ public class Main {
                     if(e.heroeVillano){
                         if(p.tipoHV){
                             e.miembros.add(p);
+                            System.out.println("Desea que "+p.nombre+" sea el líder del escuadrón?\n1-Sí\n2-No");
+                            e.lider = (leer.nextInt()==1)?p:null;
                         }else{
                             System.out.println("La persona no existe entre los héroes");
                         }
@@ -516,6 +527,20 @@ public class Main {
     }
     
     //Simulación
+    public void simulacion(){
+        Scanner leer = new Scanner (System.in);
+        System.out.println("Ingrese el nombre del escuadrón 1:");
+        Escuadron e1 = unicoNombreEscuadron(leer.next());
+        System.out.println("Ingrese el nombre del escuadrón 2:");
+        Escuadron e2 = unicoNombreEscuadron(leer.next());
+        if(e1!=null && e2!=null){
+            
+            
+       
+            
+        }
+        
+    }
     
     
     
